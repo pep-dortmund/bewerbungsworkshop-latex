@@ -2,7 +2,8 @@ all: build/cover-letter.pdf
 
 
 build/cover-letter.pdf: ../cv/build/cv.pdf FORCE | build
-	latexmk cover-letter.tex
+	latexmk --jobname=tmp cover-letter.tex
+	pdftk build/tmp.pdf $< output $@
 
 build:
 	mkdir -p build
