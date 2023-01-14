@@ -1,0 +1,94 @@
+\documentclass[
+  parskip=half,
+  fromemail,
+  fromphone,
+  backaddress=false,
+  enlargefirstpage,
+  firstfoot=false,
+  foldmarks=false,
+  DIV=15,
+  fromalign=locationright,
+]{scrlttr2}
+
+
+
+\usepackage{fontspec}
+\setsansfont{Libertinus Sans}
+% sans font by default
+\renewcommand\familydefault\sfdefault
+
+\usepackage{microtype}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{blindtext}
+\usepackage{pdfpages}
+
+\setkomavar{fromname}{Dr.~Max Mustermann}
+
+\setkomavar{fromaddress}{Otto-Hahn-Str. 4a\\ 44227 Dortmund}
+\setkomavar{fromemail}[{\faEnvelope[regular]\,}]{\href{mailto:max10.mustermann@tu-dortmund.de}{max10.mustermann@tu-dortmund.de}}
+\setkomavar{fromphone}[{\faMobile*\,}]{+49 123 456 789}
+
+\setkomavar{signature}{
+  \includegraphics[height=1.5cm, width=3cm]{example-image-a}\\[-\baselineskip]
+  Dr.~Max~Mustermann
+}
+
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\usepackage[
+  unicode,
+  colorlinks,
+  linkcolor=red!70!black,
+  urlcolor=red!70!black,
+]{hyperref}
+
+\newcommand\mail[1]{\href{mailto:#1}{\faEnvelope[regular]\,#1}}
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% remove address field, not needed for PDF
+\setplength{locwidth}{0.5\paperwidth}
+\setplength{locvpos}{1cm}
+\setplength{toaddrvpos}{1.5cm}
+\setplength{refvpos}{5cm}
+\setplength{sigbeforevskip}{0.5cm}
+
+\setkomavar*{enclseparator}{Anlage}
+
+\begin{document}
+
+
+\begin{letter}{%
+  z.\,H.\ Marie Curie\\
+  Quack Physics Limited\\
+  Foostr.~1\\
+  12345 Bar-Stadt
+}%
+
+\setkomavar{subject}{%
+  Bewerbung als Senior Chief of Quack Physics\\
+  \small Ausschreibungs-Referenz: 2022-1234
+}
+\opening{Sehr geehrte Frau Curie,}
+
+Mit großem Interesse habe ich die vorliegende Stellenausschreibung für eine
+PostDoc-Position ....
+
+\blindtext
+
+\blindtext
+
+Als Referenzkontakte möchte ich
+Albert Einstein – \mail{aeinstein@example.org} –
+und Paul Dirac – \mail{pdirac@example.org} angeben.
+
+\closing{Mit freundlichen Grüßen}
+\encl{Lebenslauf}
+
+\end{letter}
+
+\includepdf[pages=-]{../cv/build/cv.pdf}
+
+\end{document}

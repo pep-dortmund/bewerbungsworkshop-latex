@@ -1,0 +1,5 @@
+$out_dir = "build";
+$pdflatex = "lualatex -interaction=nonstopmode -halt-on-error %O %S";
+$pdf_mode = 1;
+@default_files = ("cover-letter.tex");
+$clean_ext = "bcf bbl glg glo gls run.xml xdy"

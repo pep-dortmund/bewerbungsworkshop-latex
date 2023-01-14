@@ -11,3 +11,6 @@ clean:
 	rm -rf build
 
 FORCE:
+
+
+.PHONY: all clean FORCE
