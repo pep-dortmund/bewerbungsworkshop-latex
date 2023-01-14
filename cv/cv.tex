@@ -1,0 +1,121 @@
+\documentclass[a4paper, 12pt]{moderncv}
+
+
+\moderncvtheme{casual}
+
+\usepackage[margin=1.5cm, bottom=2cm]{geometry}
+\recomputelengths
+
+\photo{example-image-a}
+
+\usepackage{fontspec}
+\setromanfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\renewcommand\familydefault\sfdefault%
+
+
+\usepackage{microtype}
+
+\usepackage[ngerman]{babel}
+\usepackage[autostyle]{csquotes}
+
+\usepackage[sorting=ydnt]{biblatex}
+\addbibresource{publications.bib}
+\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=note, final]
+      \step[fieldset=addendum, origfieldval, final]
+      \step[fieldset=note, null]
+    }
+  }
+}
+\DeclareFieldFormat{addendum}{%
+  \newline
+  \small%
+  {\color{darkgray}{#1}}
+}
+
+
+
+\usepackage{graphicx}
+
+
+\firstname{{\fontsize{24}{24}\selectfont Dr.~rer.~nat.}\\Max}
+\familyname{Mustermann}
+\title{Lebenslauf}
+
+
+\address{Otto-Hahn-Str. 4a}{44227 Dortmund}
+\mobile{+49 123 456789}
+\email{max10.mustermann@tu-dortmund.de}
+
+\usepackage{xpatch}
+
+% do not justify text
+\xpatchcmd{\cvitem}{#3}{\raggedright #3\par}{}{}
+\xpatchcmd{\cventry}{\small}{\small\raggedright}{}{}
+
+% remove dot after cventry
+\xpatchcmd{\cventry}{.\strut}{\strut}{}{}
+
+
+\usepackage{xcolor}
+\colorlet{color1}{red!70!black}
+
+\setlength{\hintscolumnwidth}{4cm}
+\setlength{\footskip}{40pt}
+
+\usepackage[unicode, colorlinks=true, urlcolor=color1, linkcolor=color1]{hyperref}
+
+
+\begin{document}
+\raggedright
+
+\maketitle
+\setlength{\parskip}{-1.0ex}
+
+\section{Persönliche Daten}
+
+\cvline{Geburtsname}{Musterfrau}
+\cvline{Familienstand}{ledig}
+\cvline{Staatsangehörigkeit}{deutsch}
+
+\section{Ausbildung}
+
+\cventry{20xx–20yy}{Abitur}{Tolles Gymnasium}{Heimatstadt}{Note:~4,0}{}
+\cventry{20yy–20zz}{Bachelor of Science Physik}{TU~Dortmund}{}{Note:~4,0}{}
+\cventry{20zz–20aa}{Master of Science Physik}{TU~Dortmund}{}{Note:~4,0}{}
+\cventry{20aa–20bb}{Promotion}{TU~Dortmund}{}{Note:~rite}{}
+
+\section{Beruf}
+\cventry{20aa–20bb}{Wissenschaftlicher Mitarbeiter}{AG Einstein}{TU Dortmund}{}{Kurze Beschreibung}
+
+\section{Lehre}
+\cventry{20aa-20bb}{Einführung in die Quatschphysik}{TU Dortmund}{}{}{Tolle Vorlesung}
+\cventry{2014-2022}{PeP et al. Toolbox Workshop}{TU Dortmund}{}{}{Kurs für Physikstudierende. Einführung in wissenschaftliches Programmieren und Datenanalyse mit Python, Git, Make und Verfassen wissenschaftlicher Texte mit \LaTeX{}.}
+
+\newpage
+\section{Interessen}
+\cvlistdoubleitem{Photographie}{Kochen}
+\cvlistdoubleitem{Fechten}{Programmieren}
+
+\section{Ehrenamtliches Engagement}
+\cventry{2012–heute}{Vorstandsmitglied}{Physikstudierende und ehemalige Physikstudierende der TU Dortmund et al. e.\,V}{}{}{Organisation des Toolbox-Workshops, der Sommerakademie, Absolventenfeier und von weiteren Workshops und Hackathons. Betreuung der IT-Infrastruktur.}
+
+\section{Programmiersprachen (Auswahl)}
+\cvlanguage{Python}{Experte}{Maintainer von Bibliothek X, Beiträge zu Open-Source Projekten Y und Z (siehe Software-Projekte). Lehrender bei Kursen und Workshops.}
+\cvlanguage{\LaTeX}{Experte}{Langjährige Leitung des \LaTeX{}-Kurses von PeP et al.}
+\cvlanguage{C++}{Experte}{Habe \enquote{Effective Modern C++} gelesen}
+\cvlanguage{Rust, Java, Julia, JavaScript, Go}{Grundkenntnisse}{}
+
+\section{Veröffentlichungen (Auswahl)}
+\nocite{*}
+\printbibliography[heading=none]
+
+\section{Software-Projekte (Auswahl)}
+\cvline{Toolbox-Workshop}{\href{https://github.com/pep-dortmund/toolbox-workshop}{github.com/pep-dortmund/toolbox-workshop}}
+
+\end{document}
