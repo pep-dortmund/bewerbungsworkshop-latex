@@ -1,28 +1,34 @@
 \documentclass[a4paper, 12pt]{moderncv}
 
-
+% see texdoc moderncv for options
 \moderncvtheme{casual}
 
-\usepackage[margin=1.5cm, bottom=2cm]{geometry}
+\usepackage[margin=1.5cm, bottom=2.5cm]{geometry}
 \recomputelengths
 
-\photo{example-image-a}
 
+% font setup
 \usepackage{fontspec}
 \setromanfont{Libertinus Serif}
 \setsansfont{Libertinus Sans}
+
+% use sans-serif font as default font in the document
 \renewcommand\familydefault\sfdefault%
 
 
 \usepackage{microtype}
 
 \usepackage[ngerman]{babel}
-\usepackage[autostyle]{csquotes}
 
+\usepackage{graphicx}
+
+% for publication list
+\usepackage[autostyle]{csquotes}
 \usepackage[sorting=ydnt]{biblatex}
 \addbibresource{publications.bib}
-\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}}
 
+% add note below main citation, a little smaller.
+% Helpful to summarize the paper / thesis and to explain main outcomes
 \DeclareSourcemap{
   \maps[datatype=bibtex]{
     \map{
@@ -38,13 +44,14 @@
   {\color{darkgray}{#1}}
 }
 
+% u.a. -> et al.
+\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}}
 
-
-\usepackage{graphicx}
 
 
 \firstname{{\fontsize{24}{24}\selectfont Dr.~rer.~nat.}\\Max}
 \familyname{Mustermann}
+\photo{example-image-a}
 \title{Lebenslauf}
 
 
