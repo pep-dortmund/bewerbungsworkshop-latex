@@ -1,5 +1,8 @@
 $out_dir = "build";
-$pdflatex = "lualatex -interaction=nonstopmode -halt-on-error %O %S";
-$pdf_mode = 1;
+$lualatex = "lualatex -interaction=nonstopmode -halt-on-error %O %S";
+
+# use lualatex:
+$pdf_mode = 4;
+
 @default_files = ("cv.tex");
 $clean_ext = "bcf bbl glg glo gls run.xml xdy"
